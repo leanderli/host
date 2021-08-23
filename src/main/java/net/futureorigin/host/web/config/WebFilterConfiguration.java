@@ -21,7 +21,6 @@ public class WebFilterConfiguration {
     @Bean
     public FilterRegistrationBean<AuthFilter> FilterRegistrationBean() {
         FilterRegistrationBean<AuthFilter> registrationBean = new FilterRegistrationBean<>(authFilter);
-        //过滤所有路径
         registrationBean.addUrlPatterns("/host/*");
         registrationBean.setName("authFilter");
         return registrationBean;
@@ -30,7 +29,6 @@ public class WebFilterConfiguration {
     @Bean
     public FilterRegistrationBean<ExceptionFilter> exceptionFilterRegistrationBean() {
         FilterRegistrationBean<ExceptionFilter> registrationBean = new FilterRegistrationBean<>(exceptionFilter);
-        //过滤所有路径auth
         registrationBean.addUrlPatterns("/*");
         registrationBean.setName("exceptionFilter");
         registrationBean.setOrder(-1);
