@@ -23,7 +23,6 @@ public class ExceptionFilter implements Filter {
         try {
             chain.doFilter(request, response);
         } catch (Exception e) {
-            // 异常捕获，发送到 FilterExceptionController
             request.setAttribute(REQ_EXCEPTION, e);
             //将异常分发到 /exception/filterException 控制器
             request.getRequestDispatcher("/exception/handleFilterException").forward(request, response);
