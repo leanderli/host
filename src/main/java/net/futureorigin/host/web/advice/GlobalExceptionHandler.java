@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author Leander Lee on 2021/8/22.
  */
 @RestControllerAdvice
-@Order(1)
+@Order(999)
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)

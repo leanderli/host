@@ -1,6 +1,6 @@
 package net.futureorigin.host.web.filter;
 
-import net.futureorigin.host.common.HostProperties;
+import net.futureorigin.host.common.config.HostProperties;
 import net.futureorigin.host.common.exception.AuthException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;

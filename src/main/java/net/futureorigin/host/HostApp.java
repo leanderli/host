@@ -1,6 +1,6 @@
 package net.futureorigin.host;
 
-import net.futureorigin.host.common.HostProperties;
+import net.futureorigin.host.common.config.HostProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

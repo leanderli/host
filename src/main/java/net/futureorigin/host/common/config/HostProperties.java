@@ -1,4 +1,4 @@
-package net.futureorigin.host.common;
+package net.futureorigin.host.common.config;
 
 import lombok.Getter;
 import lombok.Setter;

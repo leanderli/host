@@ -22,9 +22,8 @@ public class WebFilterConfiguration {
     public FilterRegistrationBean<AuthFilter> FilterRegistrationBean() {
         FilterRegistrationBean<AuthFilter> registrationBean = new FilterRegistrationBean<>(authFilter);
         //过滤所有路径
-        registrationBean.addUrlPatterns("/*");
+        registrationBean.addUrlPatterns("/host/*");
         registrationBean.setName("authFilter");
-        registrationBean.setOrder(1);
         return registrationBean;
     }
 
