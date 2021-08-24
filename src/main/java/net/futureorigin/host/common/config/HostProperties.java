@@ -17,5 +17,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ToString
 public class HostProperties {
 
-    private String[] allowedAccesskey;
+    private String[] allowedAccessKey;
+
 }

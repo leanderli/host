@@ -1,6 +1,7 @@
 package net.futureorigin.host.web.filter;
 
 import net.futureorigin.host.common.config.HostProperties;
+import net.futureorigin.host.common.constant.ParamContants;
 import net.futureorigin.host.common.exception.AuthException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -31,17 +32,17 @@ public class AuthFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        if (null == hostProperties.getAllowedAccesskey() || hostProperties.getAllowedAccesskey().length <= 0) {
+        if (null == hostProperties.getAllowedAccessKey() || hostProperties.getAllowedAccessKey().length <= 0) {
             filterChain.doFilter(servletRequest, servletResponse);
             return;
         }
 
-        String accessKey = servletRequest.getParameter("accessKey");
+        String accessKey = servletRequest.getParameter(ParamContants.ACCESS_KEY);
         if (StringUtils.isEmpty(accessKey)) {
-            throw new AuthException(String.valueOf(HttpStatus.BAD_REQUEST.value()), "Param 'accessKey' must be not null.");
+            throw new AuthException(String.valueOf(HttpStatus.BAD_REQUEST.value()), "Param '" + ParamContants.ACCESS_KEY + "' must be not null.");
         }
-        if (Arrays.stream(hostProperties.getAllowedAccesskey()).noneMatch(s -> s.equals(accessKey))) {
-            throw new AuthException(String.valueOf(HttpStatus.BAD_REQUEST.value()), "Param 'accessKey' is invalid.");
+        if (Arrays.stream(hostProperties.getAllowedAccessKey()).noneMatch(s -> s.equals(accessKey))) {
+            throw new AuthException(String.valueOf(HttpStatus.BAD_REQUEST.value()), "Param '" + ParamContants.ACCESS_KEY + "' is invalid.");
         }
 
         filterChain.doFilter(servletRequest, servletResponse);
