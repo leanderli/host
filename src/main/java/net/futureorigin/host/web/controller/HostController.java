@@ -20,7 +20,7 @@ public class HostController {
 
     @GetMapping(path = "myHost")
     public SingleResponse<String> getIp(HttpServletRequest request) {
-        return SingleResponse.of(HostUtils.getRealIpV2(request));
+        return SingleResponse.of(HostUtils.getRealIp(request));
     }
 
 
